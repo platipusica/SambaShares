@@ -1,4 +1,4 @@
-# Jam.py Application for Postfix Aliases (compatible with Python3)
+# Jam.py Application for Samba Shares (compatible with Python3)
 
 [![Build Status](https://api.travis-ci.org/platipusica/jam-py.png?branch=master)](http://travis-ci.org/platipusica/jam-py)
 ![Python versions](https://img.shields.io/pypi/pyversions/python3-saml.svg)
@@ -6,35 +6,6 @@
 The Problem
 =============
 
-Postfix mail server can be configured with a number of virtual maps, normally files in some folder called for example domainxyz.virtual (see http://www.postfix.org/postmap.1.html).
-
-In /etc/postfix/main.cf Postfix configuration, the virtual aliases files might look something like:
-
-```
-.
-.
-virtual_alias_maps = ldap:/etc/postfix/ldap-maps.cf 
-  hash:/etc/postfix/virtual_maps/domain1.virtual 
-  hash:/etc/postfix/virtual_maps/domain2.virtual 
-  hash:/etc/postfix/virtual_maps/domain3.virtual 
-  .
-  .
-  .
-  hash:/etc/postfix/virtual_maps/domainxyz.virtual 
-```
-
-The file is just a plain text file maintained by the System Administrator. The file is converted into the Postfix 'hashed' binary format with below command: 
-
-```
-postmap domainxyz.virtual
-```
-
-The result is domainxyz.db 'hashed' file which is used by Postfix. 
-
-
-
-Now, imagine to maintain a hundreds of this files in an secure and source controlled fashion! That is a lot of work, and prone to errors, typos and what not.
-However, imagine that this can be offloaded to the Junior Support Personnel or the Business Owner who 'owns' the domains in question, so she/he can update the aliases by themself! Interested? 
 
 The Solution
 =================
@@ -56,57 +27,15 @@ How does it work?
 
 Please visit Heroku App:
 
-http://jampy-aliases.herokuapp.com/
 
-Here, you're presented with the Domain Email Aliases. On the Catalogs Menu is everthing what normal User shouldn't access, Footers, Headers, Files Path and Users. The File Path here is just an example for each Domain in question. We need a Header to *Warn* the console users who might manually update the file, and we also need Footer to add any extra aliases normal User can't see (like mailman aliases, etc).
-
-After some domain is updated, the new entry added, deleted or aliases disabled, by click on "Save", the Application automaticaly creates the new virtual file (overwrites the old one), and executes postmap for the same file.
-
-The file domain3.virtual would look like:
-
-```
-#WARNING GENERATED FILE...                              <-- this is a file Header
-aliases go in here:
-.
-.
-
-# WARNING WARNING WARNING                               <-- this is a file Footer
-# This entry must be the last entry in the file !!!     <-- this is a Footer
-# Catch-all for non-existent Addresses                  <-- this is a Footer
-# WARNING WARNING WARNING                               <-- this is a Footer
-@doman3.com	devnull                                      <-- this is a Footer
-```
-
-and it would be written in /etc/postfix/virtual_maps/ folder. The 'hashed' file would be created there as well.
-
-
-
-This is the first release so please bear with me if there are any inconsistencies.
 
 
 How to run in *your* environment?
 ==================================
 
-Download this repo, and run it. The App will be in read only mode. Change the file jam/server_classes.py and remove lines 194-198 to remove read only. If you like the App, completely remove the jam folder, which is here only for r/o App, install the latest Jam.py (with Python virtenv as a preference), and try the App again.
-To try the user access, open Application builder, click on Parameters/Safe Mode. The users are *admin* and *user* with password *111*.
-
-If all good, add some Virtual Aliases details (like file location matching details in /etc/postfix/main.cf), and Users on Catalogs menu. After that, add some Email aliases. 
-Click on "Save" will create or overwrite domainxyz.virtual file and execute "postmap domainxyz.virtual", whatever the domainxyz is. Postfix will pickup the changes immediately. This code is commented out atm, and you can find it in Task Server module when open App Builder on Demo.
-
-The above is based on assumption that the App runs as root.  If the App is running with mod_wsgi and Apache, the OS permissions is a problem as Apache usually runs as non root user. One option is to change the permissions on files/folders to match the Apache user. For sure *all* Apache files can be overwritten with this way. The other option might include writing files somewhere, and picking the files by cron. 
-
-One thing to remember, nothing is really deleted in this App. Jam.py is using a flag deleted=1 in the table for *deleted* records. Plus, there is a History for any record, hence audited. For even higher protection, one could Export/Import data into a more secure database, like Oracle, Postgres, MySQL or MSSQL. Simple. 
 
 Further Enhancements 
 =================
-
-Further enhancements would be beneficial like having a Dashboard with aliases analytics. Also the custom reports with the same or adding postfix maillog analytics (pflogsumm), would be great to have (pls see below, added in August 2018). Or regex controlled User input for the emails. Jam.py can definitely do that.
-
-The AD authentication is supported out of the box. Please raise an request with a Python version needed and will be emailed to you.
-
-![Example Postfix log graphs](https://github.com/platipusica/jampy-posfixaliases/blob/master/docs/Traffic_Screenshot%20from%202018-07-31%2015-20-10.png  "Example Postfix log graphs")
-
-For the above graphs to work, the read permissions needs to be set for mail log files. Since the Heroku App can't read this, we can't show the real data. Open the Application Builder/Task/Groups/Analytics/Server module to see the code and changes for your logs.
 
 About Jam.py
 =================
