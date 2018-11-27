@@ -5,21 +5,19 @@
 
 The Problem
 =============
+WIP
 
 
 The Solution
 =================
 
-The Jam.py Postfix Aliases Application is my take on solving the problem of:
+The Jam.py Samba Shares Application is my take on solving the problem of:
 
 * The Application Access in an secure and monitored way over the Web
-* The Complete Actions History on any virtual domain (or any other part of App) 
-* Virtual domain file Header and Footer (as bulk entries, only Admin can modify)
-* Individual email aliases records on/off (with bulk entries, User can modify)
+* The Complete Actions History on any Samba Share (or any other part of App) 
 * Custom Comments (ie Incident in Service Ticketing Software) 
 * Search on any records
-* Saving the content in Postmap binary file
-* Reports and Dashboard
+* Reports and Dashboard (wip)
 
 
 How does it work?
@@ -27,15 +25,16 @@ How does it work?
 
 Please visit Heroku App:
 
-
+https://sambashares.herokuapp.com
 
 
 How to run in *your* environment?
 ==================================
-
+WIP
 
 Further Enhancements 
 =================
+WIP
 
 About Jam.py
 =================
