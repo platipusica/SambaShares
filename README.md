@@ -5,7 +5,9 @@
 
 The Problem
 =============
-WIP
+Some *nix environments might have a large number of servers with Samba shared folders and reoccurring access groups/users for particular shared folders.
+The core Samba configuration ([global] section in smb.conf) is rarely changing, but the shares might, the problem is how to maintain the smb.conf file for all servers in controlled fashion over the Web?
+
 
 
 The Solution
