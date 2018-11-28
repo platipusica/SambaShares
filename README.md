@@ -29,6 +29,61 @@ Please visit Heroku App:
 
 https://sambashares.herokuapp.com
 
+Here, you're presented with the Sama Shares Application. On the Catalogs Menu is everything what read only User shouldn't access, Samba Server, Users, Veto Files and Valid Groups. The Samba Server here is just an example for each Server in question. We need a Header to Warn the server console users who might manually update the file, and to store all other information for Samba functioning (warning, updating the system might update the smb.conf).
+We need Path to write the content of generated smb.conf somewhere where the Web server can read/write.
+
+After some server is updated with a share, the new entry added, deleted or shares disabled, by click on "Save", the Application automatically creates the smb.conf  file (overwrites the old one).
+
+
+The file smb.conf would look like:
+```
+#WARNING GENERATED FILE
+# Global parameters
+[global]
+	server string = %h server (Samba, Ubuntu)
+	server role = standalone server
+	map to guest = Bad User
+	obey pam restrictions = Yes
+	pam password change = Yes
+	passwd program = /usr/bin/passwd %u
+	passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+	unix password sync = Yes
+	syslog = 0
+	log file = /var/log/samba/log.%m
+	max log size = 1000
+	dns proxy = No
+	usershare allow guests = Yes
+	panic action = /usr/share/samba/panic-action %d
+	idmap config * : backend = tdb
+
+
+[printers]
+	comment = All Printers
+	path = /var/spool/samba
+	create mask = 0700
+	printable = Yes
+	browseable = No
+
+
+[print$]
+	comment = Printer Drivers
+	path = /var/lib/samba/printers
+
+[Test_Share_1]
+	create mask = 0660
+	read only = no
+  .
+  .
+	valid users = @group1 @group2
+[Test_Share_2]
+	create mask = 0664
+	veto files = /file 1/file 2/file 3/
+  .
+  .
+	valid users = @group3 @group4
+#WARNING GENERATED FILE
+
+```
 
 How to run in *your* environment?
 ==================================
