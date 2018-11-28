@@ -29,10 +29,10 @@ Please visit Heroku App:
 
 https://sambashares.herokuapp.com
 
-Here, you're presented with the Sama Shares Application. On the Catalogs Menu is everything what read only User shouldn't access, Samba Server, Users, Veto Files and Valid Groups. The Samba Server here is just an example for each Server in question. We need a Header to Warn the server console users who might manually update the file, and to store all other information for Samba functioning (warning, updating the system might update the smb.conf).
+Here, you're presented with the Samaba Shares Application. On the Catalogs Menu is everything what User shouldn't access, Samba Server, Users, Veto Files and Valid Groups. The Samba Server here is just an example for each Server in question. We need a Header to Warn the server console users who might manually update the smb.conf file, and to store all other information for Samba functioning (warning, updating the system might update the smb.conf).
 We need Path to write the content of generated smb.conf somewhere where the Web server can read/write.
 
-After some server is updated with a share, the new entry added, deleted or shares disabled, by click on "Save", the Application automatically creates the smb.conf  file (overwrites the old one).
+After the server is updated with a share, the new entry added, deleted or shares disabled, by click on "Save", the Application automatically creates the smb.conf  file (overwrites the old one).
 
 
 The file smb.conf would look like:
@@ -87,7 +87,14 @@ The file smb.conf would look like:
 
 How to run in *your* environment?
 ==================================
-WIP
+
+Download this repo, and run it. The App will be in read only mode. Change the file jam/server_classes.py and remove lines 208-211 to remove read only. If you like the App, completely remove the jam folder, which is here only for r/o App, install the latest Jam.py (with Python virtenv as a preference), and try the App again. To try the user access, open Application builder, click on Parameters/Safe Mode. The users are admin/111, user1/1111, user2,/2222.
+
+If all good, add some server details (like file location plus plus the server name DOT conf), and the rest on Catalogs menu. After that, add some server shares. Click on "Save" will create or overwrite server.conf file. Copy the file to the server with cron or similar.
+
+The above is based on assumption that the App runs as root. If the App is running with mod_wsgi and Apache, the OS permissions is a problem as Apache usually runs as non root user. One option is to change the permissions on files/folders to match the Apache user. For sure all Apache files can be overwritten with this way. The other option might include writing files somewhere, and picking the files by cron.
+
+One thing to remember, nothing is really deleted in this App. Jam.py is using a flag deleted=1 in the table for deleted records. Plus, there is a History for any record, hence audited. For even higher protection, one could Export/Import data into a more secure database, like Oracle, Postgres, MySQL or MSSQL. Simple.
 
 Further Enhancements 
 =================
@@ -100,11 +107,11 @@ With Jam.py you can create, customise, test and share awesome, fast, event-drive
 
 How was this Demo published on Heroku?
 ------------------------------------
-The Aliases App you see on Heroku is just the Jam.py Project with two files added: requirements.txt and Procfile.
+The Samba Shares App you see on Heroku is just the Jam.py Project with two files added: requirements.txt and Procfile.
 
 Then the Heroku account was open, jampy App created, Git repo linked and deployed. In 10 seconds it magically appeared as a live Web site. 
 
-My second Jam.py Demo lives here: https://jampy.herokuapp.com
+My second Jam.py Demo lives here: http://jampy-aliases.herokuapp.com
 The same principles apply.
 
 Enjoy.
