@@ -88,7 +88,7 @@ The file smb.conf would look like:
 How to run in *your* environment?
 ==================================
 
-Download this repo, and run it. The App will be in read only mode. Change the file jam/server_classes.py and remove lines 208-211 to remove read only. If you like the App, completely remove the jam folder, which is here only for r/o App, install the latest Jam.py (with Python virtenv as a preference), and try the App again. To try the user access, open Application builder, click on Parameters/Safe Mode. The users are admin/111, user1/1111, user2,/2222.
+Download this repo, and run it. The App will be in read only mode. Change the file jam/server_classes.py and remove lines 208-211 to remove read only. If you like the App, completely remove the jam folder, which is here only for r/o App, install the latest Jam.py (with Python virtenv as a preference), and try the App again. To try the user access, open Application builder, click on Parameters/Safe Mode. The users are admin/111 as seen in Users Catalog.
 
 If all good, add some server details (like file location plus plus the server name DOT conf), and the rest on Catalogs menu. After that, add some server shares. Click on "Save" will create or overwrite server.conf file. Copy the file to the server with cron or similar.
 
