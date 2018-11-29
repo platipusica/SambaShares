@@ -90,7 +90,7 @@ How to run in *your* environment?
 
 Download this repo, and run it. The App will be in read only mode. Change the file jam/server_classes.py and remove lines 208-211 to remove read only. If you like the App, completely remove the jam folder, which is here only for r/o App, install the latest Jam.py (with Python virtenv as a preference), and try the App again. To try the user access, open Application builder, click on Parameters/Safe Mode. The users are admin/111 as seen in Users Catalog.
 
-If all good, add some server details (like file location plus plus the server name DOT conf), and the rest on Catalogs menu. After that, add some server shares. Click on "Save" will create or overwrite server.conf file. Copy the file to the server with cron or similar.
+If all good, add some server details (like file location plus the server name DOT conf), and the rest on Catalogs menu. After that, add some server shares. Click on "Save" will create or overwrite server.conf file. Copy the file to the server with cron or similar.
 
 The above is based on assumption that the App runs as root. If the App is running with mod_wsgi and Apache, the OS permissions is a problem as Apache usually runs as non root user. One option is to change the permissions on files/folders to match the Apache user. For sure all Apache files can be overwritten with this way. The other option might include writing files somewhere, and picking the files by cron.
 
