@@ -69,18 +69,18 @@ The file smb.conf would look like:
 	comment = Printer Drivers
 	path = /var/lib/samba/printers
 
-[Test_Share_1]
-	create mask = 0660
-	read only = no
-  .
-  .
+[Test_Share_1]									|
+	create mask = 0660							|
+	read only = no								|
+  .						
+  .										The Application is creating this part only!
 	valid users = @group1 @group2							
 [Test_Share_2]									|
 	create mask = 0664							|
 	veto files = /file 1/file 2/file 3/					|	
   .										|
   .										|
-	valid users = @group3 @group4						|
+	valid users = @group3 @group4						\/
 #WARNING GENERATED FILE
 
 ```
