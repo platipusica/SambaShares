@@ -74,13 +74,13 @@ The file smb.conf would look like:
 	read only = no
   .
   .
-	valid users = @group1 @group2
-[Test_Share_2]
-	create mask = 0664
-	veto files = /file 1/file 2/file 3/
-  .
-  .
-	valid users = @group3 @group4
+	valid users = @group1 @group2							
+[Test_Share_2]									|
+	create mask = 0664							|
+	veto files = /file 1/file 2/file 3/					|	
+  .										|
+  .										|
+	valid users = @group3 @group4						|
 #WARNING GENERATED FILE
 
 ```
