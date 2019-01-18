@@ -98,7 +98,8 @@ One thing to remember, nothing is really deleted in this App. Jam.py is using a 
 
 Further Enhancements 
 =================
-WIP
+One can add any Samba smb.conf *name = value*. To create a *name*, Open Application builder/Project/Task/Group/Journals/Samba Share, and add it there as a *value* which is a Lookup value created on Project/Task/Lookup lists.
+This App was based on my other Jam.py app, http://jampy-aliases.herokuapp.com, hence some table names will reference email aliases. This can be refactored.
 
 About Jam.py
 =================
