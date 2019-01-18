@@ -37,7 +37,7 @@ After the server is updated with a share, the new entry added, deleted or shares
 
 The file smb.conf would look like:
 ```
-#WARNING GENERATED FILE
+#WARNING GENERATED FILE									<-- this is a file Header
 # Global parameters
 [global]
 	server string = %h server (Samba, Ubuntu)
@@ -68,8 +68,8 @@ The file smb.conf would look like:
 [print$]
 	comment = Printer Drivers
 	path = /var/lib/samba/printers
-
-[Test_Share_1]									|
+											<-- end of file file Header
+[Test_Share_1]									/\
 	create mask = 0660							|
 	read only = no								|
   .						
@@ -81,7 +81,7 @@ The file smb.conf would look like:
   .										|
   .										|
 	valid users = @group3 @group4						\/
-#WARNING GENERATED FILE
+#WARNING GENERATED FILE								<-- this is a file Footer
 
 ```
 
