@@ -37,7 +37,7 @@ After the server is updated with a share, the new entry added, deleted or shares
 
 The file smb.conf would look like:
 ```
-#WARNING GENERATED FILE								<-- this is a file Header
+#WARNING GENERATED FILE								<-- this is a file Header, rarely changing
 # Global parameters
 [global]
 	server string = %h server (Samba, Ubuntu)
@@ -73,7 +73,7 @@ The file smb.conf would look like:
 	create mask = 0660							|
 	read only = no								|
   .						
-  .										The Application is creating this part only!
+  .										Changing quite often!
 	valid users = @group1 @group2							
 [Test_Share_2]									|
 	create mask = 0664							|
@@ -81,7 +81,7 @@ The file smb.conf would look like:
   .										|
   .										|
 	valid users = @group3 @group4						\/
-#WARNING GENERATED FILE								<-- this is a file Footer
+#WARNING GENERATED FILE								<-- this is a file Footer, rarely changing
 
 ```
 
