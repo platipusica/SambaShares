@@ -100,6 +100,7 @@ Further Enhancements
 =================
 One can add any Samba smb.conf *name = value*. To create a *name*, Open Application builder/Project/Task/Group/Journals/Samba Share, and add it there as a *value* which is a Lookup value created on Project/Task/Lookup lists.
 This App was based on my other Jam.py app, http://jampy-aliases.herokuapp.com, hence some table names will reference email aliases. This can be refactored.
+Further enhancements would be beneficial like having a Dashboard with shared folders analytics (ie, number of groups per share, etc).
 
 About Jam.py
 =================
