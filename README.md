@@ -113,7 +113,9 @@ The Samba Shares App you see on Heroku is just the Jam.py Project with two files
 
 Then the Heroku account was open, jampy App created, Git repo linked and deployed. In 10 seconds it magically appeared as a live Web site. 
 
-My second Jam.py Demo lives here: http://jampy-aliases.herokuapp.com
+My second Jam.py App lives here: http://jampy-aliases.herokuapp.com
+My third Jam.py App lives here: https://redhatsatellite.herokuapp.com 
+
 The same principles apply.
 
 Enjoy.
