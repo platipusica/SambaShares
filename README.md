@@ -105,6 +105,9 @@ Further enhancements would be beneficial like having a Dashboard with shared fol
 About Jam.py
 =================
 
+Please visit:
+http://jampyapplicationbuilder.com/
+
 With Jam.py you can create, customise, test and share awesome, fast, event-driven applications for SQLite, Oracle, MySQL, PostgreSQL and Firebird. All of that for free and no vendor lock-in!
 
 How was this Demo published on Heroku?
