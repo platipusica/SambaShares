@@ -29,7 +29,7 @@ Please visit Heroku App:
 
 https://sambashares.herokuapp.com
 
-Here, you're presented with the Samaba Shares Application. On the Catalogs Menu is everything what User shouldn't access, Samba Server, Users, Veto Files and Valid Groups. The Samba Server here is just an example for each Server in question. We need a Header to Warn the server console users who might manually update the smb.conf file, and to store all other information for Samba functioning (warning, updating the system might update the smb.conf).
+Here, you're presented with the Samba Shares Application. On the Catalogs Menu is everything what User shouldn't access, Samba Server, Users, Veto Files and Valid Groups. The Samba Server here is just an example for each Server in question. We need a Header to Warn the server console users who might manually update the smb.conf file, and to store all other information for Samba functioning (warning, updating the system might update the smb.conf).
 We need Path to write the content of generated smb.conf somewhere where the Web server can read/write.
 
 After the server is updated with a share, the new entry added, deleted or shares disabled, by click on "Save", the Application automatically creates the smb.conf  file (overwrites the old one).
